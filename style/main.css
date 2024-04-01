@@ -1,0 +1,825 @@
+/*region Header */
+header {
+    min-height: 700px;
+    position: relative;
+    background: url("../images/main/bg-texture.png"),
+    url("../images/main/city.png") no-repeat calc(50% + 13px) bottom,
+    url("../images/icons/ellipse-text.svg") calc(50% + 307px) 0 no-repeat,
+    url("../images/main/queen.png") calc(50% + 112px) 270px no-repeat,
+    url("../images/main/king.png") calc(50% + 451px) 165px no-repeat,
+    url("../images/main/ellipse.png") calc(50% + 321px) 0 no-repeat var(--bg-color);
+    background-blend-mode: color-burn, normal, overlay, normal, normal, normal;
+    overflow: hidden;
+}
+header .container {
+    padding-top: 26px;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    position: relative;
+}
+
+.header-bg-mix {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+.header-bg-mix .container {
+    padding: 0;
+    height: 100%;
+}
+.header-bg-mix .container:after {
+    content: url("../images/main/chest-board-line.png");
+    position: absolute;
+    display: flex;
+    bottom: -4px;
+    left: calc(50% - 1px);
+    transform: translateX(-50%);
+}
+.header-bg-mix .horse {
+    position: absolute;
+    bottom: 0;
+    left: calc(50% + 152px);
+}
+.header-bg-mix .pawn {
+    position: absolute;
+    bottom: 19px;
+    left: calc(50% + 556px);
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 6.35px;
+}
+.header-logo .logo__img {
+    content: url("../images/icons/logo.svg") ;
+}
+.header-logo .logo__text {
+    font-weight: 700;
+    font-size: 16.65px;
+    line-height: 18px;
+    color: var(--brown-color);
+    text-transform: uppercase;
+}
+
+.header-text__block {
+    margin-top: 62px;
+    max-width: 542px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.header-text__block h1 {
+    font-family: Merriweather, sans-serif;
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 66px;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+}
+.header-text__block h1 span {
+    align-self: center;
+}
+.header-text__block h1 span:last-of-type {
+    align-self: flex-end;
+}
+.header-text__block p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 23.4px;
+    text-align: center;
+}
+
+.buttons__container {
+    display: flex;
+    align-self: center;
+    gap: 16px;
+    margin-top: 16px;
+}
+.buttons__container a {
+    flex: 1 1 40%;
+}
+
+.running-row {
+    overflow: hidden;
+    background-color: var(--red-color);
+}
+.running-row p {
+    font-family: Merriweather, sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 24.2px;
+    display: flex;
+    align-self: center;
+    gap: 30px;
+    color: var(--white-color);
+    padding: 18px 0;
+    text-transform: uppercase;
+    transform: translateX(0);
+}
+
+.running-row p span {
+    position: relative;
+    white-space: nowrap;
+}
+.running-row p span:after {
+    content: '';
+    position: absolute;
+}
+
+
+@media screen and (max-width: 1280px) {
+    header {
+        background: url("../images/main/bg-texture.png"),
+        url("../images/main/city.png") no-repeat center bottom,
+        url("../images/icons/ellipse-text.svg") calc(50% - 12px) 0 no-repeat,
+        url("../images/main/queen.png") calc(50% + 100px) calc(100% - 150px) no-repeat,
+        url("../images/main/king.png") calc(50% + 350px) calc(100% - 250px) no-repeat,
+        url("../images/main/ellipse.png") center 0 no-repeat var(--bg-color);
+        padding-bottom: 420px;
+    }
+    .header-bg-mix .container:after {
+        left: calc(50% - 15px);
+    }
+    .header-logo {
+        margin: 0 auto;
+    }
+    .header-text__block {
+        margin: 62px auto;
+    }
+}
+@media screen and (max-width: 768px) {
+    header {
+        background: url("../images/main/bg-texture.png"),
+        url("../images/main/city.png") no-repeat center bottom,
+        url("../images/icons/ellipse-text.svg") calc(50% - 12px) 0 no-repeat,
+        url("../images/main/queen.png") calc(50% + 100px) calc(100% - 150px) no-repeat,
+        url("../images/main/king.png") calc(50% + 350px) calc(100% - 250px) no-repeat,
+        url("../images/main/ellipse.png") center 0 no-repeat var(--bg-color);
+
+        min-height: 774px;
+        padding: 0;
+    }
+    header .container {
+        padding: 18px 19px 0;
+    }
+    .header-logo {
+        margin: 0;
+    }
+    .header-logo .logo__img {
+        height: 27px;
+        width: auto;
+    }
+    .header-logo .logo__text {
+        font-size: 14.42px;
+        line-height: 15.57px;
+    }
+    .header-text__block {
+        margin: 40px auto;
+        max-width: 335px;
+    }
+    .header-text__block h1 {
+        font-size: 36px;
+        font-weight: 400;
+        line-height: 39.6px;
+    }
+    .header-text__block p {
+        text-align: left;
+        text-wrap: balance;
+    }
+    .buttons__container {
+        margin-top: 8px;
+        flex-direction: column;
+        gap: 14px;
+    }
+    .buttons__container a {
+        padding: 13px 43px;
+        height: auto;
+        min-height: 47px;
+    }
+    .buttons__container .main-btn._transparent {
+        border: none;
+        background-color: rgba(255,255,255,.9);
+    }
+
+    .running-row p {
+        font-size: 16px;
+        line-height: 17.6px;
+        padding: 10px;
+        min-height: 38px;
+    }
+}
+@media screen and (max-width: 480px) {
+    header {
+        background: url("../images/main/bg-texture.png"),
+        url("../images/main/chest-board-line.png") calc(50% - 171px) bottom no-repeat,
+        url("../images/main/city.png") no-repeat calc(50% - 162px) bottom,
+        url("../images/icons/ellipse-text2.svg") calc(50% - 12px) calc(100% - 43px) no-repeat,
+        url("../images/main/queen.png") calc(50% - 109px) calc(100% - 117px) no-repeat,
+        url("../images/main/king.png") calc(50% + 62px) calc(100% - 177px) no-repeat,
+        url("../images/main/ellipse2.png") calc(50% - 11px) calc(100% - 69px) no-repeat var(--bg-color);
+
+        background-blend-mode: color-burn, normal, normal, overlay, normal, normal, normal;
+        background-size: auto auto, auto 253px, auto 246px, auto 350px, auto 116px, auto 105px, auto 298px;
+        padding-bottom: 251px;
+    }
+    .header-bg-mix .container:after {
+        content: none;
+    }
+    .header-bg-mix .horse {
+        height: 121px;
+        left: calc(50%);
+        transform: translateX(-50%);
+    }
+    .header-bg-mix .pawn {
+        display: none;
+    }
+}
+/*endregion*/
+
+/*region Main */
+section {
+    margin-top: 200px;
+}
+section:first-of-type {
+    margin-top: 80px;
+}
+section:last-of-type {
+    padding-bottom: 140px;
+}
+
+h2.section__h2 {
+    font-family: Merriweather, sans-serif;
+    font-size: 54px;
+    line-height: 64.8px;
+    text-transform: uppercase;
+}
+h2.section__h2 .main__text {
+    text-transform: none;
+    line-height: 24px;
+    font-family: "Golos Text", sans-serif;
+    width: 280px;
+    display: inline-block;
+    padding-left: 6px;
+}
+
+
+h3.section__h3 {
+    font-family: Merriweather, sans-serif;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 48.9px;
+    text-transform: uppercase;
+}
+.support-chess .block:nth-child(1) h3.section__h3.mobile {
+    display: none;
+}
+h3.section__h3 .red {
+    font-weight: 700;
+}
+.main__text {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    color: var(--dark-color)
+}
+.main__text.blue {
+    color: var(--blue-color)
+}
+
+.support-chess .container {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+.support-chess .block {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+}
+.support-chess picture {
+    max-width: 394px;
+    flex: 0 0 394px;
+    width: 100%;
+}
+.support-chess picture img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.support-chess .block:nth-child(2) {
+    gap: 17px;
+    align-items: flex-start;
+}
+.thinking-img {
+    background: url("../images/main/bg-texture2.png") center,
+    url("../images/main/hand.png") calc(100% - 22px) calc(100% + 58px) no-repeat,
+    url("../images/main/chess-player-thinking.png") calc(50% + 6px) calc(100% - 39px) no-repeat,
+    url("../images/main/paper.png") no-repeat 61px 82px var(--white-color);
+    background-blend-mode: color-burn, normal, normal, normal;
+    flex: 0 0 540px;
+    height: 609px;
+    margin-left: -39px;
+}
+.table-block {
+    padding-top: 45px;
+    display: flex;
+    flex-direction: column;
+    gap: 59px;
+}
+.table-block > .main__text {
+    margin-top: -12px;
+}
+.table-block table {
+    border-collapse: collapse;
+}
+.table-block table tr {
+    display: flex;
+    border-bottom: 2px solid #D0D0D0;
+}
+.table-block table tr:last-of-type {
+    border-bottom: none;
+}
+.table-block table th {
+    width: 306px;
+    color: var(--light-dark);
+    text-align: left;
+    padding: 14px 16px 16px 0;
+    border-right: 2px solid #D0D0D0;
+}
+.table-block table td {
+    padding: 14px 16px 16px 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.table-block table .crossed {
+    position: relative;
+}
+.table-block table .crossed:after {
+    content: '';
+    height: 2px;
+    right: 0;
+    left: 0;
+    bottom: 9px;
+    width: 100%;
+    position: absolute;
+    background-color: var(--red-color);
+}
+
+.table-block table tr:first-of-type th,
+.table-block table tr:first-of-type td {
+    padding-top: 0;
+}
+.table-block table tr:last-of-type th,
+.table-block table tr:last-of-type td {
+    padding-bottom: 0;
+}
+
+.about-tournament {
+    margin-top: 162px;
+}
+.about-tournament .container {
+    display: flex;
+    flex-direction: column;
+    gap: 54px;
+}
+.stages {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    counter-reset: count 0;
+    text-wrap: balance;
+}
+.stages + .slider__nav {
+    display: none;
+}
+.stage {
+    background: url("../images/main/bg-texture.png") rgb(237,226,209);
+    background-blend-mode: color-burn;
+    padding: 20px 20px 20px 72px;
+    font-weight: 500;
+    counter-increment: count 1;
+    position: relative;
+}
+.stage p {
+    white-space: normal;
+}
+.stage3 {
+    grid-row: span 2;
+}
+.stage6 {
+    background: url("../images/main/bg-texture.png") rgb(230,218,199);
+}
+.stage7 {
+    grid-column: span 2;
+    background: url("../images/main/bg-texture.png") rgb(230,218,199);
+    padding: 20px 320px 20px 77px;
+}
+.stage7:after {
+    content: url("../images/main/airplane.png");
+    bottom: -5px;
+    position: absolute;
+    right: -63px;
+}
+
+.stage:before {
+    position: absolute;
+    content: counter(count);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 18px;
+    left: 20px;
+}
+.stage7:before {
+    top: 18px;
+    left: 24px;
+}
+
+.players__section .container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+.players__wrapper {
+    overflow: hidden;
+}
+.players__container {
+    position: relative;
+}
+.players__row {
+    /*gap: 20px;*/
+    display: flex;
+    transition-duration: var(--transition);
+}
+.players__row::-webkit-scrollbar {
+    display: none;
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 0 calc(33.33%);
+    padding: 0 10px;
+}
+.player:first-of-type {
+    padding-left: 0;
+}
+.player:last-of-type {
+    padding-right: 0;
+}
+.player picture {
+    max-width: 320px;
+}
+.player picture img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+.player h4 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28.8px;
+    margin-top: 24px;
+}
+.player p {
+    color: rgba(49, 49, 49, 0.6);
+    margin-top: 6px;
+}
+.player .lil-btn {
+    margin-top: 21px;
+}
+.slider__nav {
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 72px);
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+.slider__nav .slider__btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+}
+.slider__nav .slide-next {
+    background: url("../images/icons/arrow-right.svg") var(--dark-color) no-repeat 18px 13px;
+    background-size: 11px auto;
+}
+.slider__nav .slide-prev {
+    transform: rotate(180deg);
+    background: url("../images/icons/arrow-right.svg") var(--dark-color) no-repeat 18px 13px;
+    background-size: 11px auto;
+}
+.slider__gaps {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.slider__gaps .gap {
+    width: 10px;
+    height: 10px;
+    background-color: #D9D9D9;
+    border-radius: 50%;
+}
+.slider__gaps .gap._active {
+    background-color: var(--dark-color);
+}
+.sliders-count {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2px;
+}
+.sliders-count .current-slide {
+    min-width: 17px;
+    text-align: center;
+}
+.sliders-count .disabled {
+    color: rgba(49, 49, 49, 0.6);
+}
+.sliders-count .all-slides {
+    position: relative;
+}
+.sliders-count .all-slides:before {
+    content: '/';
+    position: absolute;
+    right: calc(100% + 2px);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@media screen and (max-width: 1280px) {
+    section {
+        margin-top: 120px;
+    }
+    section:first-of-type {
+        margin-top: 48px;
+    }
+    section:last-of-type {
+        padding-bottom: 100px;
+    }
+
+    h2.section__h2 {
+        font-size: calc(54 / 1280 * 100dvw);
+        line-height: calc(64.8 / 1280 * 100dvw);
+    }
+    h3.section__h3 {
+        font-size: calc(36 / 1280 * 100dvw);
+        line-height: calc(48.6 / 1280 * 100dvw);
+    }
+    .support-chess .container {
+        gap: 13px;
+    }
+    .support-chess .block {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .support-chess .block:nth-child(1) h3.section__h3 {
+        flex: 1 1 572px;
+    }
+    .support-chess .block:nth-child(2) {
+        gap: 24px;
+    }
+    .table-block {
+        padding-top: 7px;
+        gap: 44px;
+    }
+    .table-block > .main__text {
+        margin-top: -4px;
+    }
+    .about-tournament .container {
+        gap: 30px;
+    }
+    .stages {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .stage3 {
+        grid-row: span 1;
+    }
+    .stage7 {
+        padding-right: 200px;
+    }
+    .stage7:after {
+        right: 0;
+        bottom: auto;
+        top: calc(100% - 100px)
+    }
+}
+@media screen and (max-width: 1024px) {
+    h2.section__h2 {
+        font-size: 36px;
+        line-height: 39.6px;
+    }
+    h2.section__h2 .main__text {
+        display: flex;
+        margin-top: 12px;
+        width: auto;
+    }
+    h3.section__h3 {
+        font-size: 28px;
+        line-height: 37.8px;
+    }
+    .table-block table tr:first-of-type th,
+    .table-block table tr:first-of-type td {
+        padding-top: 0;
+    }
+    .table-block table tr:last-of-type th,
+    .table-block table tr:last-of-type td {
+        padding-bottom: 0;
+    }
+    .player {
+        flex: 0 0 50%;
+    }
+    .players__nav {
+        bottom: calc(100% + 62px);
+    }
+}
+@media screen and (max-width: 768px) {
+    h2.section__h2 .main__text {
+        font-size: 18px;
+        line-height: 21.6px;
+    }
+    .support-chess .block:nth-child(1) h3.section__h3 .mobile-hidden {
+        display: none;
+    }
+    .support-chess .block:nth-child(1) h3.section__h3.mobile {
+        display: flex;
+    }
+    .support-chess picture {
+        max-width: 335px;
+    }
+    .support-chess picture img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+    .table-block table tr {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+    .table-block table tr:first-of-type {
+        padding-top: 0;
+    }
+    .table-block table tr:last-of-type {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    .table-block table th {
+        width: auto;
+        padding: 0;
+        border-right: none;
+    }
+    .table-block table td {
+        padding: 0;
+    }
+    .slider__nav {
+        position: initial;
+        justify-content: center;
+        margin-top: 40px;
+    }
+    .thinking-img {
+        background: url("../images/main/bg-texture2.png") center,
+        url("../images/main/hand.png") calc(100% - 17px) calc(100% + 60px) no-repeat,
+        url("../images/main/chess-player-thinking.png") right center no-repeat,
+        url("../images/main/paper.png") no-repeat 30px 61px var(--white-color);
+        background-blend-mode: color-burn, normal, normal, normal;
+
+        background-size: auto auto, auto 210px, 374px auto, 290px 312px;
+        flex: 0 0 374px;
+        height: 420px;
+    }
+    .about-tournament .container {
+        gap: 0;
+    }
+    .about-tournament .section__h2 {
+        position: relative;
+    }
+    .about-tournament .section__h2:after {
+        content: '';
+        position: absolute;
+        width: 345px;
+        height: 182px;
+        background: url("../images/main/airplane.png") no-repeat center;
+        background-size: 100%;
+        z-index: 2;
+        top: calc(100% + 30px);
+    }
+    .stages__container {
+        overflow: hidden;
+    }
+    .stages {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "stage1 stage3 stage4 stage6 stage7"
+        "stage2 stage3 stage5 stage6 stage7";
+        gap: 0 20px;
+        margin-top: 148px;
+        grid-auto-rows: min-content;
+        transition-duration: var(--transition);
+    }
+    .stages::-webkit-scrollbar {
+        display: none;
+    }
+    .stages + .slider__nav {
+        display: flex;
+    }
+    .stage {
+        width: calc(100dvw - 40px);
+        padding: 62px 20px 34px 72px;
+        font-size: 18px;
+        line-height: 21.6px;
+        min-height: 88px;
+    }
+    .stage:before {
+        top: 60px;
+    }
+    .stage1 {
+        grid-area: stage1;
+        padding-bottom: 14px;
+    }
+    .stage2 {
+        grid-area: stage2;
+        padding-top: 14px;
+    }
+    .stage2:before,
+    .stage5:before {
+        top: 14px;
+    }
+    .stage3 {
+        grid-area: stage3;
+    }
+    .stage4 {
+        grid-area: stage4;
+        padding-bottom: 14px;
+    }
+    .stage5 {
+        grid-area: stage5;
+        padding-top: 14px;
+    }
+
+    .stage6 {
+        grid-area: stage6;
+    }
+    .stage7 {
+        grid-column: initial;
+        grid-area: stage7;
+    }
+    .stage7:after {
+        content: none;
+    }
+    .player {
+        flex: 0 0 100%;
+        padding: 0;
+    }
+}
+@media screen and (max-width: 480px) {
+    .player picture {
+        width: 244px;
+    }
+}
+
+/*endregion*/
+
+/*region Footer */
+footer {
+    background-color: var(--bg-color);
+    padding: 40px 0 72px;
+}
+footer p {
+    line-height: 19.2px;
+    color: rgba(49, 49, 49, 0.6);
+}
+
+@media screen and (max-width: 768px) {
+    footer {
+        padding: 40px 0 60px;
+    }
+}
+/*endregion*/
