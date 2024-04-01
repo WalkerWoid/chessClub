@@ -37,6 +37,18 @@ class StagesSlider {
         })
         this.#updateFirstActiveSlide();
     }
+    #changeBtnsColor() {
+        if (this.#indexOfFirstActiveSlide < this.#step) {
+            this.#sliderNav.querySelector('.slide-prev').classList.add('_disabled')
+        } else {
+            this.#sliderNav.querySelector('.slide-prev').classList.remove('_disabled')
+        }
+        if (this.#indexOfFirstActiveSlide == this.#allSlides.length-1) {
+            this.#sliderNav.querySelector('.slide-next').classList.add('_disabled');
+        } else {
+            this.#sliderNav.querySelector('.slide-next').classList.remove('_disabled');
+        }
+    }
     #initNav() {
         const nextBtn = this.#sliderNav.querySelector('.slide-next');
         const prevBtn = this.#sliderNav.querySelector('.slide-prev');
@@ -67,6 +79,7 @@ class StagesSlider {
                     this.#actualSlides();
                     this.#moveSlider();
                 }
+                this.#changeBtnsColor();
                 break;
             case 'next':
                 if (this.#currentStep + this.#step > this.#allSlides.length) {
@@ -77,6 +90,7 @@ class StagesSlider {
                     this.#moveSlider();
                     this.#actualSlides();
                 }
+                this.#changeBtnsColor();
                 break;
             default:
                 return

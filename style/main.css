@@ -529,6 +529,17 @@ h3.section__h3 .red {
     background: url("../images/icons/arrow-right.svg") var(--dark-color) no-repeat 18px 13px;
     background-size: 11px auto;
 }
+.slider__nav .slider__btn._disabled {
+    background-color: #D6D6D6;
+    cursor: default;
+}
+.slider__nav .slider__btn:hover {
+    background-color: var(--yellow-color);
+}
+.slider__nav .slider__btn._disabled:hover {
+    background-color: #D6D6D6;
+    cursor: default;
+}
 .slider__gaps {
     display: flex;
     align-items: center;
@@ -797,6 +808,10 @@ h3.section__h3 .red {
     .player {
         flex: 0 0 100%;
         padding: 0;
+    }
+
+    .slider__nav .slider__btn:hover {
+        background-color: var(--dark-color);
     }
 }
 @media screen and (max-width: 480px) {

@@ -146,6 +146,13 @@ class Slider {
         this.#allSlidesContainer.textContent = `${this.#countSliders}`;
         this.#currentSliderContainer.textContent = `${this.#currentStep}`;
     }
+    #changeBtnsColor() {
+        if (this.#indexOfFirstActiveSlide < this.#step) {
+            this.#sliderNav.querySelector('.slide-prev').classList.add('_disabled')
+        } else {
+            this.#sliderNav.querySelector('.slide-prev').classList.remove('_disabled')
+        }
+    }
     #moveSlider() {
         this.#sliderRow.style.transform = `translate3d(${this.#translate}px, 0, 0)`;
     }
@@ -161,6 +168,7 @@ class Slider {
                     this.#actualSlides();
                     this.#moveSlider();
                 }
+                this.#changeBtnsColor();
                 break;
             case 'next':
                 if (this.#currentStep + this.#step > this.#countSliders) {
@@ -183,6 +191,7 @@ class Slider {
                     this.#moveSlider();
                     this.#actualSlides();
                 }
+                this.#changeBtnsColor();
                 break;
             default:
                 return
